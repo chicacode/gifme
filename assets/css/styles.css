@@ -1,5 +1,135 @@
+:root {
+  --dark: rgb(18, 18, 18);
+  --primary: #141414;
+  --light: #f3f3f3;
+  --darkgray: #686868;
+}
+
+html,
 body {
+  background-color: var(--dark);
+  color: var(--light);
+  font-size: 16px;
+  font-weight: normal;
+  height: 100%;
+  letter-spacing: 0px;
+  margin: 0px auto;
+  /* min-height: 500px; */
   font-family: "Lato", sans-serif;
   font-family: "Poppins", sans-serif;
   font-family: "Tilt Warp", cursive;
+  text-align: left;
+  padding: 0px;
+  border: 0px;
+  vertical-align: baseline;
+  line-height: unset;
+  list-style: none;
+}
+
+/* header */
+
+.header-container {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-areas: "nt mn sb . . . ";
+  padding: 20px 20px 0 20px;
+  position: fixed;
+  top: 0;
+  background-color: var(--dark);
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.logo img {
+  width: 100%;
+}
+img {
+  max-width: 100%;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.255);
+}
+
+.main-nav {
+  grid-area: mn;
+  padding: 30px 30px 0 20px;
+}
+
+.main-nav a {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: var(--light);
+  margin: 5px;
+  font-size: 24px;
+  transition: 200ms ease-in-out;
+}
+
+.main-nav a:hover {
+  background: linear-gradient(
+      to right,
+      rgb(0, 204, 255),
+      rgb(153, 51, 255) 31%,
+      rgb(230, 70, 182) 52%,
+      rgb(255, 249, 170) 77%,
+      rgb(0, 255, 153),
+      rgb(0, 204, 255)
+    )
+    0% 50% / 200% 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--dark);
+  border-radius: 8px;
+}
+
+.sub-nav {
+  grid-area: sb;
+}
+
+/* .sub-nav {
+    grid-area: sb;
+    padding: 30px 40px 0 10px;
+  }
+   */
+
+.sub-nav ul {
+  color: var(--light);
+  text-decoration: none;
+  list-style-type: none;
+  margin: 5px;
+  font-size: 24px;
+}
+
+/* ul li:hover {
+  margin: 0px;
+  background: linear-gradient(
+      to right,
+      rgb(0, 204, 255),
+      rgb(153, 51, 255) 31%,
+      rgb(230, 70, 182) 52%,
+      rgb(255, 249, 170) 77%,
+      rgb(0, 255, 153),
+      rgb(0, 204, 255)
+    )
+    0% 50% / 200% 50%;
+  display: flex;
+  justify-content: space-around;
+  transform: translateZ(0px);
+} */
+.sub-nav ul li:hover {
+  background: linear-gradient(
+      to right,
+      rgb(0, 255, 153),
+      rgb(0, 204, 255)
+    )
+    0% 50% / 200% 50%;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid var(--dark);
+  border-radius: 8px;
+  color: var(--primary);
+  display: flex;
+  justify-content: space-around;
+  transform: translateZ(0px);
 }

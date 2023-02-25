@@ -11,9 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300;1,400&family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,700&family=Tilt+Warp&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300;1,400&family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,700&family=Tilt+Warp&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -22,30 +25,97 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
-    <link rel="shortcut icon" type="image/jpg" href="assets/img/logo.png" />
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="assets/img/Badge/Poweredby_640px_Badge.gif"
+    />
     <title>gifme</title>
   </head>
   <body>
     <div class="wrapper">
-        <!-- header -->
-        <header>
-            <nav>
-                <ul>
-                    <li>header - navbar</li>
-                    <li>header - navbar</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </nav>
-        </header>
+      <!-- HEADER -->
+      <header>
+        <div class="header-container">
+          <div class="logo">
+            <a id="logo" href="#home"
+              ><img
+                src="./assets/img/Light Backgrounds/Poweredby_640px-White_HorizLogo.png"
+                alt="Logo Image"
+            /></a>
+          </div>
+          <nav class="main-nav" aria-label="main">
+            <a href="#reactions">reactions</a>
+            <a href="#entertainment">entertainment</a>
+            <a href="#trending">trending</a>
+            <a href="#stickers">stickers</a>
+            <a href="#artist">artist</a>
 
-        <!-- container -->
-        <main>
-            <h1>
-                container giohy
-            </h1>
-        </main>
+            <a
+              target="_blank"
+              href="https://github.com/chicacode/coppola-movie-app"
+              >portfolio</a
+            >
+          </nav>
+          <nav class="sub-nav" aria-label="sub-nav">
+            <ul>
+              <li>header - navbar</li>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- CONTAINER -->
+      <main>
+        <h1>container gifme</h1>
+        <!-- SECTION -->
+        <section class="search-container">
+          <form id="search" class="search">
+            <input
+              type="text"
+              id="search-input"
+              name="search-input"
+              placeholder="Search..."
+              class="search-input"
+            />
+          </form>
+        </section>
+        <section class="main-container">
+          <div class="popular" id="home">
+            <h1 id="popular">Popular && Trending Now on Coppola Movie App</h1>
+            <div class="box-container"></div>
+            <div id="no-result"></div>
+          </div>
+
+          <h1 id="trending">trending now</h1>
+          <div class="box">trending</div>
+
+          <h1 id="reactions">reactions</h1>
+          <div class="box">reactions</div>
+
+          <h1 id="entertainment">entertainment</h1>
+          <div class="box">entertainment</div>
+
+          <h1 id="artist">artist</h1>
+          <div class="box">artist</div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+          <p>&copy 2023 Gifme app, Inc. - Giphy Recreation</p>
+          <p>Chicacode &copy 2023</p>
+          <bloque>"Powered By GIPHY"</bloque>
+          <a id="logo" href="#home"
+            ><img
+              src="./assets/img/PoweredBy_200px-White_HorizLogo.png"
+              alt="Logo Image"
+          /></a>
+        </footer>
+      </main>
     </div>
   </body>
 </html>
