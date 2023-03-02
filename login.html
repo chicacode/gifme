@@ -12,6 +12,7 @@
 
 <body>
     <header class="header">
+        <div class="header-container">
         <div class="logo">
             <a id="logo" href="./index.html"
               ><img
@@ -19,16 +20,20 @@
                 alt="Logo Image"
             /></a>
           </div>
+        </div>
     </header>
     <section class="login">
         <section class="login__container">
             <h2 tabindex="0">
                 Login
             </h2>
-            <form class="login__container--form">
-                <input aria-label="email" class="input" type="text" id="email" placeholder="Email">
-                <input aria-label="password" class="input" type="password" id="Password" placeholder="Password">
-                <button class="button">Login</button>
+            <div id="login-error-msg-holder">
+                <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+              </div>
+            <form class="login__container--form" id="login-form">
+                <input aria-label="email" class="input" type="text" name="username" id="username" placeholder="Email">
+                <input aria-label="password" class="input" type="password" name="password" id="password" placeholder="Password">
+                <button class="button" type="submit"  id="login-form-submit" onclick="login()">Login</button>
                 <div class="login__container--remember-me">
                     <label for="remember">
                         <input type="checkbox" id="remember" name="remember" value="remember" class="check">
@@ -51,11 +56,18 @@
             </p>
         </section>
     </section>
-    <footer class="footer">
-        <a href="/ ">User Terms</a>
-        <a href="/ ">Privacy</a>
-        <a href="/ ">Help</a>
-    </footer>
+        <!-- FOOTER -->
+        <footer>
+            <p>&copy 2023 Gifme app, Inc. - Giphy Recreation</p>
+            <p>Chicacode &copy 2023</p>
+            <bloque>"Powered By GIPHY"</bloque>
+            <a id="logo" href="#home"
+              ><img
+                src="./assets/img/PoweredBy_200px-White_HorizLogo.png"
+                alt="Logo Image"
+            /></a>
+          </footer>
+    <script src="/js/login.js"></script>
 </body>
 
 </html>

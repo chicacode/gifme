@@ -29,9 +29,7 @@ body {
 /* header */
 
 .header-container {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 1fr 4fr 1fr;
@@ -57,7 +55,7 @@ img {
   padding: 30px 30px 0 20px;
 }
 
-.main-nav a {
+.main-nav a, .sub-nav ul li a {
   text-transform: capitalize;
   text-decoration: none;
   color: var(--light);
@@ -101,23 +99,7 @@ img {
   font-size: 24px;
 }
 
-/* ul li:hover {
-  margin: 0px;
-  background: linear-gradient(
-      to right,
-      rgb(0, 204, 255),
-      rgb(153, 51, 255) 31%,
-      rgb(230, 70, 182) 52%,
-      rgb(255, 249, 170) 77%,
-      rgb(0, 255, 153),
-      rgb(0, 204, 255)
-    )
-    0% 50% / 200% 50%;
-  display: flex;
-  justify-content: space-around;
-  transform: translateZ(0px);
-} */
-.sub-nav ul li:hover {
+.sub-nav ul li:hover, .sub-nav ul li a:hover {
   background: linear-gradient(
       to right,
       rgb(0, 255, 153),
@@ -460,6 +442,32 @@ h2 {
   letter-spacing: 1px;
   margin: 10px 0px;
 }
+
+#login-error-msg-holder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+#login-error-msg {
+  width: 230px;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8a0000;
+  border: 1px solid #8a0000;
+  background-color: #e58f8f;
+ opacity: 0;
+}
+
+#error-msg-second-line {
+  display: block;
+}
+
 .footer {
   display: flex;
   align-items: center;
