@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="login created in HTML and CSS">
+    <meta name="author" content="Geri">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <a id="logo" href="./index.html"
+              ><img
+                src="./assets/img/Light Backgrounds/Poweredby_640px-White_HorizLogo.png"
+                alt="Logo Image"
+            /></a>
+          </div>
+    </header>
+    <section class="login">
+        <section class="login__container">
+            <h2 tabindex="0">
+                Login
+            </h2>
+            <form class="login__container--form">
+                <input aria-label="email" class="input" type="text" id="email" placeholder="Email">
+                <input aria-label="password" class="input" type="password" id="Password" placeholder="Password">
+                <button class="button">Login</button>
+                <div class="login__container--remember-me">
+                    <label for="remember">
+                        <input type="checkbox" id="remember" name="remember" value="remember" class="check">
+                        Remember me 
+                    </label>
+                    <a href="/"> Forgot Password</a>
+                </div>
+            </form>
+            <section class="login__container--social-media">
+                <div>
+                    <img width="40px" src="/assets/img/1200px-Google__G__Logo.svg.png" alt="google logo"> Login with Google
+                </div>
+                <div>
+                    <img width="40px" src="/assets/img/twitter.webp" alt="twitter logo"> Login with Twitter
+                </div>
+            </section>
+            <p class="login__container--register">
+                Don't you have an account.
+                <a href="/register.html"> Sign Up!</a>
+            </p>
+        </section>
+    </section>
+    <footer class="footer">
+        <a href="/ ">User Terms</a>
+        <a href="/ ">Privacy</a>
+        <a href="/ ">Help</a>
+    </footer>
+</body>
+
+</html>
