@@ -37,13 +37,36 @@ const showUI = (data) => {
         results.removeChild(results.firstChild)
     }
 
-    data.forEach(({ type, id, url, title, rating, images }) => {
+    data.forEach(({ type, id, url, title, rating, images, isFav }) => {
         let divContainer = document.createElement('div');
         let img = document.createElement('img');
         let name = document.createElement('p');
         let typeContainer = document.createElement('span');
         let ratingContainer = document.createElement('div');
         let textContainer = document.createElement('div');
+        let faviconContainer = document.createElement('span');
+
+        textContainer.classList.add("container-description")
+        faviconContainer.classList.add('container-favicon');
+        let isFavIcon = document.createElement('button');
+        isFavIcon.classList.add('button-fav-icon');
+
+        isFavIcon.innerHTML = `${ isFav ? '<i class="mdi mdi-heart"></i>' : '<i class="mdi mdi-heart-outline"></i>'}`;
+
+        isFavIcon.onclick = function(){
+            return setFavorite(id)
+        }
+        // {isFav !== undefined && (
+        //     <Button
+        //         variant="icon"
+        //         onClick={isFav ? removeFavourite : addFavourite}
+        //         disabled={loading}
+        //         className="flex items-center"
+        //         padding="lg">
+        //         <Icon icon={isFav ? 'mdi mdi-heart' : 'mdi mdi-heart-outline'} className="text-primary" />
+        //     </Button>
+        // )}
+        
 
         img.src = images.original.url;
         name.textContent = `${title}`;
@@ -52,9 +75,9 @@ const showUI = (data) => {
         divContainer.classList.add("card-box-container");
         divContainer.appendChild(img);
         textContainer.appendChild(name);
-
         divContainer.appendChild(textContainer);
-
+        faviconContainer.appendChild(isFavIcon);
+        divContainer.appendChild(faviconContainer);
         results.appendChild(divContainer);
     
     })
@@ -120,6 +143,33 @@ const showNoResultBanner = (message) => {
     }
 
 }
+
+function setFavorite(id) {
+// TODO fix this
+    console.log("llega el Id", id);
+    // let data = model.getData();
+    // let favoritesArray = [];
+    
+    // let fetchDataFromLocalStorage = model.getFavorites();
+  
+  
+    // let modifiedData = data.map((item) => {
+    //   if (item.id === id) {
+    //     item.isFavorite = true;
+    //     favoritesArray.push(item);
+    //   }
+    //   return item;
+    // });
+  
+    // if (fetchDataFromLocalStorage) {
+    //   model.setFavorites([...fetchDataFromLocalStorage, ...favoritesArray]);
+    // } else {
+    //   model.setFavorites(favoritesArray);
+    // }
+  
+    // model.setData(modifiedData);
+  
+  }
 
 // Events:
 
