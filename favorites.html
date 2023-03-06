@@ -33,6 +33,87 @@
     <title>giphy-favorites</title>
 </head>
 <body>
+  <div class="wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <a id="logo" href="./index.html"
+            ><img
+              src="./assets/img/Light Backgrounds/Poweredby_640px-White_HorizLogo.png"
+              alt="Logo Image"
+          /></a>
+        </div>
+        <nav class="main-nav" aria-label="main">
+          <a href="https://giphy.com/reactions" target="_blank">Reactions</a>
+          <a href="https://giphy.com/entertainment" target="_blank">Entertainment</a>
+          <a href="https://giphy.com/sports" target="_blank">Randoms</a>
+          <a href="https://giphy.com/stickers" target="_blank">Stickers</a>
+          <a href="https://giphy.com/artists" target="_blank">Artist</a>
+          <a href="/favorites.html" target="_blank">Favorites</a>
+          <a
+            target="_blank"
+            href="https://github.com/chicacode/gifme"
+            >portfolio</a
+          >
+
+        </nav>
+        <nav class="sub-nav" aria-label="sub-nav">
+          <ul>
+            <li>Account</li>
+            <li>
+              <a href="/login.html">Login</a>
+              </li>
+            <li>
+              <a href="/register.html">Sign up</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- CONTAINER -->
+    <main>
+      <h1>container gifme</h1>
+      <!-- SECTION -->
+      <section class="search-container">
+        <form id="search" class="search">
+          <input
+            type="text"
+            id="search-input"
+            name="search-input"
+            placeholder="Search..."
+            class="search-input"
+          />
+        </form>
+      </section>
+    
+      <section class="main-container">
+        <div class="popular" id="home">
+          <h1 id="popular">Favorites on GIPHY</h1>
+          <div class="box-container-favorites"></div>
+          <div id="no-result"></div>
+        </div>
+
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="footer_description-container">
+          <p>&copy 2023 Gifme app, Inc. - Giphy Recreation</p>
+          <p>Chicacode &copy 2023</p>
+          <bloque>"Powered By GIPHY"</bloque>
+        </div>
+
+        <a id="logo" href="#home"
+          class="footer-logo"><img
+            src="./assets/img/PoweredBy_200px-White_HorizLogo.png"
+            alt="Logo Image"
+        /></a>
+      </footer>
+    </main>
+  </div>
+  <script src="/js/favorites.js"></script>
     
 </body>
 </html>

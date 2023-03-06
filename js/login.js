@@ -11,7 +11,7 @@ function login(event){
 
     let userName = document.getElementById('email-field').value;
     let userPassword = document.getElementById('password-field').value;
-    console.log("username", userName);
+
     if(userName == obj.email && userPassword == obj.password){
         console.log("entro en if")
         window.location.href = './index.html'

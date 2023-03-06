@@ -10,7 +10,6 @@ https://api.giphy.com/v1/gifs/trending?api_key=2I8f4Stngla6Yy7O5DcMgzbaUirHKQOc&
 
 */
 
-console.log("Hello Giphy")
 const results = document.querySelector(".box-container");
 
 const searchForm = document.querySelector("#search");
@@ -25,6 +24,8 @@ const config = {
 let trendingGiphs = [];
 let allGiphsList = []
 
+let favoritesList = [];
+
 // URLS
 const TRENDING_GIPHY_URL = `${config.baseUrl}/trending?${config.apiKey}`;
 const SEARCH_GIPHY_URL = `${config.baseUrl}/search?${config.apiKey}`;
@@ -33,13 +34,14 @@ const RANDOM_GIPHY_URL = `${config.baseUrl}/random?${config.apiKey}`;
 
 const showUI = (data) => {
 
-    while(results.firstChild){
+    while (results.firstChild) {
         results.removeChild(results.firstChild)
     }
 
     data.forEach(({ type, id, url, title, rating, images, isFav }) => {
         let divContainer = document.createElement('div');
         let img = document.createElement('img');
+        let anchorTag = document.createElement('a');
         let name = document.createElement('p');
         let typeContainer = document.createElement('span');
         let ratingContainer = document.createElement('div');
@@ -51,35 +53,29 @@ const showUI = (data) => {
         let isFavIcon = document.createElement('button');
         isFavIcon.classList.add('button-fav-icon');
 
-        isFavIcon.innerHTML = `${ isFav ? '<i class="mdi mdi-heart"></i>' : '<i class="mdi mdi-heart-outline"></i>'}`;
+        isFavIcon.innerHTML = `${isFav ? '<i class="mdi mdi-heart"></i>' : '<i class="mdi mdi-heart-outline"></i>'}`;
 
-        isFavIcon.onclick = function(){
+        isFavIcon.onclick = function () {
             return setFavorite(id)
         }
-        // {isFav !== undefined && (
-        //     <Button
-        //         variant="icon"
-        //         onClick={isFav ? removeFavourite : addFavourite}
-        //         disabled={loading}
-        //         className="flex items-center"
-        //         padding="lg">
-        //         <Icon icon={isFav ? 'mdi mdi-heart' : 'mdi mdi-heart-outline'} className="text-primary" />
-        //     </Button>
-        // )}
-        
+
 
         img.src = images.original.url;
+        anchorTag.href = url;
+        anchorTag.setAttribute('target', '_blank');
+        anchorTag.appendChild(img);
         name.textContent = `${title}`;
         typeContainer.textContent = `${type}`;
         ratingContainer.textContent = `${rating}`;
         divContainer.classList.add("card-box-container");
-        divContainer.appendChild(img);
+        divContainer.appendChild(anchorTag);
+        divContainer.appendChild(anchorTag);
         textContainer.appendChild(name);
         divContainer.appendChild(textContainer);
         faviconContainer.appendChild(isFavIcon);
         divContainer.appendChild(faviconContainer);
         results.appendChild(divContainer);
-    
+
     })
 }
 
@@ -91,7 +87,8 @@ const parseList = (array) => {
             url: url,
             title: title,
             rating: rating,
-            images: images
+            images: images,
+            isFav: false,
         }
     })
 
@@ -100,7 +97,6 @@ const parseList = (array) => {
 const getGiphData = async (url, keyword) => {
 
     const apiURL = keyword ? `${url}&q=${keyword}&limit=30&offset=0&rating=g&lang=en` : url;
-    console.log("apiURL", apiURL)
     try {
         const data = await fetch(apiURL);
         const response = await data.json();
@@ -143,38 +139,80 @@ const showNoResultBanner = (message) => {
     }
 
 }
+favoritesList = JSON.parse(localStorage.getItem('favoritesList')) || [];
+// favorites.forEach(function (favorite) {
+//     document.getElementById(favorite).className = 'fav';
+// });
 
-function setFavorite(id) {
-// TODO fix this
-    console.log("llega el Id", id);
+
+
+const setFavorite = (id) => {
+    // TODO fix this
+
+    let favoriteId = id;
+    
+    let modifiedData = allGiphsList.map((item) => {
+
+        if (item.id === favoriteId) {
+            item.isFav = true;
+            item.className = 'fav';
+            favoritesList.push(item);
+          let index = favoritesList.indexOf(favoriteId);
+
+          console.log("Index", index)
+            // if (index == -1) {
+            //     favorites.push(id);
+            //     item.className = 'fav';
+            //   // item is already favorite
+            //   } else {
+            //     favorites.splice(index, 1);
+            //     item.className = '';
+            //   }
+        }
+        return item;
+    });
+    console.log("favoritesList", favoritesList)
+    // console.log("modify data", modifiedData)// all array
+
+    showUI(modifiedData);
+    localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
+
+    //     var id = e.target.id,
+    //     item = e.target,
+    //     index = favorites.indexOf(id);
+    // // return if target doesn't have an id (shouldn't happen)
+    // if (!id) return;
+    // // item is not favorite
+    // if (index == -1) {
+    //   favorites.push(id);
+    //   item.className = 'fav';
+    // // item is already favorite
+    // } else {
+    //   favorites.splice(index, 1);
+    //   item.className = '';
+    // }
+    // // store array in local storage
+    // localStorage.setItem('favorites', JSON.stringify(favorites));
+
     // let data = model.getData();
     // let favoritesArray = [];
-    
+
     // let fetchDataFromLocalStorage = model.getFavorites();
-  
-  
-    // let modifiedData = data.map((item) => {
-    //   if (item.id === id) {
-    //     item.isFavorite = true;
-    //     favoritesArray.push(item);
-    //   }
-    //   return item;
-    // });
-  
+
+
     // if (fetchDataFromLocalStorage) {
     //   model.setFavorites([...fetchDataFromLocalStorage, ...favoritesArray]);
     // } else {
     //   model.setFavorites(favoritesArray);
     // }
-  
+
     // model.setData(modifiedData);
-  
-  }
+
+}
 
 // Events:
 
 searchKeyword.addEventListener("keyup", e => {
-    console.log("entering value", e.target.value)
     searchGiphy()
 })
 
@@ -185,5 +223,5 @@ const searchGiphy = async () => {
     let { data } = await getGiphData(SEARCH_GIPHY_URL, searchKeywordValue);
     console.log("searched data", data)
     // return generateUI(result);
-  }
+}
 
