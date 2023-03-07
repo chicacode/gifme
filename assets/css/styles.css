@@ -146,7 +146,7 @@ img {
 }
 
 ::placeholder {
-  color: rgb(153, 51, 255);
+  color: rgb(51, 255, 177);
   font-size: 1.5rem;
   padding: 10px;
   text-transform: capitalize;
@@ -509,7 +509,7 @@ i {
 }
 
 .footer {
-  height: 200px;
+  height: 150px;
   width: 100%;
 }
 
@@ -529,7 +529,6 @@ i {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
 }
 
 .footer-logo{
