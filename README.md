@@ -20,8 +20,31 @@
 
 ## UI development
 
-![alt text](./assets/img/movie-app.png "image")
+![alt text](./assets/img/register.png "image")
 
-![alt text](./assets/img/movie-app-evolution.png "image")
+![alt text](./assets/img/login.png"image")
 
-![alt text](./assets/img/movie-app-done.png "image")
+![alt text](./assets/img/home.png "image")
+![alt text](./assets/img/favorites.png "image")
+
+## Logo
+
+![alt text](./assets/img/Badge/Poweredby_640px_Badge.gif "logo")
+
+## Clone this App
+
+`git clone: https://github.com/chicacode/gifme`
+
+## Tech stack used:
+
+- HTML5
+- CSS3
+- Javscript
+- Fetch API GIPHY
+- FontAwesome
+- Google Fonts
+- Material Icons
+
+## Develop by:
+
+# Geri
