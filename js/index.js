@@ -147,66 +147,28 @@ favoritesList = JSON.parse(localStorage.getItem('favoritesList')) || [];
 
 
 const setFavorite = (id) => {
-    // TODO fix this
-
     let favoriteId = id;
-    
+
     let modifiedData = allGiphsList.map((item) => {
 
         if (item.id === favoriteId) {
+
             item.isFav = true;
             item.className = 'fav';
             favoritesList.push(item);
-          let index = favoritesList.indexOf(favoriteId);
-
-          console.log("Index", index)
-            // if (index == -1) {
-            //     favorites.push(id);
-            //     item.className = 'fav';
-            //   // item is already favorite
-            //   } else {
-            //     favorites.splice(index, 1);
-            //     item.className = '';
-            //   }
         }
         return item;
     });
-    console.log("favoritesList", favoritesList)
-    // console.log("modify data", modifiedData)// all array
+
+    const res = [...favoritesList.reduce((a,c)=>{
+        a.set(c.id, c);
+        return a;
+      }, new Map()).values()];
+      
+      console.log("res",res);
 
     showUI(modifiedData);
-    localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
-
-    //     var id = e.target.id,
-    //     item = e.target,
-    //     index = favorites.indexOf(id);
-    // // return if target doesn't have an id (shouldn't happen)
-    // if (!id) return;
-    // // item is not favorite
-    // if (index == -1) {
-    //   favorites.push(id);
-    //   item.className = 'fav';
-    // // item is already favorite
-    // } else {
-    //   favorites.splice(index, 1);
-    //   item.className = '';
-    // }
-    // // store array in local storage
-    // localStorage.setItem('favorites', JSON.stringify(favorites));
-
-    // let data = model.getData();
-    // let favoritesArray = [];
-
-    // let fetchDataFromLocalStorage = model.getFavorites();
-
-
-    // if (fetchDataFromLocalStorage) {
-    //   model.setFavorites([...fetchDataFromLocalStorage, ...favoritesArray]);
-    // } else {
-    //   model.setFavorites(favoritesArray);
-    // }
-
-    // model.setData(modifiedData);
+    localStorage.setItem('favoritesList', JSON.stringify(res));
 
 }
 
@@ -221,7 +183,6 @@ const searchGiphy = async () => {
     const searchKeywordValue = searchKeyword.value;
 
     let { data } = await getGiphData(SEARCH_GIPHY_URL, searchKeywordValue);
-    console.log("searched data", data)
     // return generateUI(result);
 }
 

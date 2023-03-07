@@ -482,17 +482,6 @@ i {
   color: rgb(230, 70, 182);
 }
 
-.button-fav-icon i:hover:after,
-.button-fav-icon i.fav:after {
-  content: ' \2605';
-  color: rgb(255, 203, 0);
-}
-.button-fav-icon i.fav:hover:after {
-  content: ' \2606';
-}
-/* i::after{
-  background-color: rgb(230, 70, 182);
-} */
 
 #login-error-msg-holder {
   width: 100%;
