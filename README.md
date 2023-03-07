@@ -22,7 +22,7 @@
 
 ![alt text](./assets/img/register.png "image")
 
-![alt text](./assets/img/login.png"image")
+![alt text](./assets/img/login.png "image")
 
 ![alt text](./assets/img/home.png "image")
 ![alt text](./assets/img/favorites.png "image")
